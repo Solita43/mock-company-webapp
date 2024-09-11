@@ -11,9 +11,7 @@ jobs:
         with:
           node-version: '18'
       - name: Set up Jenkins
-        uses: jenkinsci/jfr-setup-action@master
-        with:
-          jenkinsVersion: '2.401.3'
+        uses: jenkinsci/jfr-runtime-action@master
       - name: Run Jenkins pipeline
         uses: jenkinsci/jfr-runtime-action@master
         with:

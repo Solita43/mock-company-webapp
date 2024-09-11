@@ -1,24 +1,17 @@
 name: Java CI
 on: [push]
 jobs:
-  jenkins-pipeline:
+  jenkins-static-image-pipeline:
     runs-on: ubuntu-latest
-    name: jenkins-prebuilt-container-test
-    container:
-      # prerequisite
-      image: ghcr.io/jenkinsci/jenkinsfile-runner:master
+    name: jenkins-static-image-pipeline-test
     steps:
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 18
-      - uses: actions/checkout@v3
-      # jfr-container-action
-      - name: Jenkins pipeline in the container
-        id: jenkins_pipeline_container
+      - uses: actions/checkout@v2
+      # jfr-static-image-action
+      - name: Jenkins pipeline with the static image
+        id: jenkins_pipeline_image
         uses:
-          jenkinsci/jfr-container-action@master
+          jenkinsci/jfr-static-image-action@master
         with:
           command: run
           jenkinsfile: Jenkinsfile
           pluginstxt: plugins.txt
-        

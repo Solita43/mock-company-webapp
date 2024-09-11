@@ -8,12 +8,10 @@ jobs:
       # prerequisite
       image: ghcr.io/jenkinsci/jenkinsfile-runner:master
     steps:
-      - uses: actions/checkout@v3
       - uses: actions/setup-node@v4
         with:
           node-version: 18
-        env:
-          ACTIONS_ALLOW_UNSECURE_NODE_VERSION: true
+      - uses: actions/checkout@v3
       # jfr-container-action
       - name: Jenkins pipeline in the container
         id: jenkins_pipeline_container

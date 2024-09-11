@@ -3,17 +3,18 @@ on: [push]
 jobs:
   jenkins-pipeline:
     runs-on: ubuntu-latest
+    name: jenkins-prebuilt-container-test
+    container:
+      # prerequisite
+      image: ghcr.io/jenkinsci/jenkinsfile-runner:master
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-      - name: Set up Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-      - name: Set up Jenkins
-        uses: jenkinsci/jfr-runtime-action@master
-      - name: Run Jenkins pipeline
-        uses: jenkinsci/jfr-runtime-action@master
+      - uses: actions/checkout@v2
+      # jfr-container-action
+      - name: Jenkins pipeline in the container
+        id: jenkins_pipeline_container
+        uses:
+          jenkinsci/jfr-container-action@master
         with:
           command: run
           jenkinsfile: Jenkinsfile
+          pluginstxt: plugins.txt

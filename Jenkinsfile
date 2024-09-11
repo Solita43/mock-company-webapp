@@ -3,9 +3,9 @@ pipeline {
    * TODO: Implement pipeline stages/steps
    *   See documentation: https://www.jenkins.io/doc/book/pipeline/syntax/#stages
    */
-   agent node {
+   agent {node {
        label 'master'
-   }
+   }}
    stages {
        stage('Build') {
            steps {

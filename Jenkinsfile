@@ -4,9 +4,6 @@ pipeline {
    *   See documentation: https://www.jenkins.io/doc/book/pipeline/syntax/#stages
    */
   agent any
-  node {
-    download = true
-  }
   stages {
       stage('Build') {
           steps {

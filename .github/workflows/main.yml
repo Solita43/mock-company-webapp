@@ -15,4 +15,4 @@ jobs:
           command: run
           jenkinsfile: Jenkinsfile
           pluginstxt: plugins.txt
-          baseImage: node:18.3.0
+          baseImage: node:16.8.0

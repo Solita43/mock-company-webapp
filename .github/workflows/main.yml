@@ -9,6 +9,8 @@ jobs:
       image: ghcr.io/jenkinsci/jenkinsfile-runner:master
     steps:
       - uses: actions/checkout@v3
+        env:
+          ACTIONS_ALLOW_UNSECURE_NODE_VERSION: true
       # jfr-container-action
       - name: Jenkins pipeline in the container
         id: jenkins_pipeline_container
@@ -18,3 +20,4 @@ jobs:
           command: run
           jenkinsfile: Jenkinsfile
           pluginstxt: plugins.txt
+        
